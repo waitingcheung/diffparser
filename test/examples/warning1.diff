@@ -1,0 +1,292 @@
+--- arrays_1_2.log	2016-04-27 13:03:56.000000000 +0800
++++ arrays_1_2.log	
+@@ -4,17 +4,17 @@
+ Context-sensitivity mode is "loop-sensitivity enabled and 10-callsite".
+ 
+ * Initialize *
+-# Time for IR translation(s): 5.25
+-# Time for CFG building(s): 0.51
+-# Time for front end(s): 5.76
++# Time for IR translation(s): 4.48
++# Time for CFG building(s): 0.54
++# Time for front end(s): 5.02
+ 
+ * Analyze *
+-# Initial peak memory(mb): 275.09
++# Initial peak memory(mb): 275.08
+ # Basic block(#): 5123
+   # Source: 3078
+   # Built-in: 2045
+-# Time for initial heap(s): 0.68
+-# Time for initial heap with DOM modeling(ms): 32.021
++# Time for initial heap(s): 0.62
++# Time for initial heap with DOM modeling(ms): 31.698
+ # Time for worklist order computation(s): 0.18
+ 
+   Dense Iteration: 0(1)   next: ((0,LEntry),Loop : List(), Call: List())                
+@@ -157908,82 +157908,86 @@
+   Dense Iteration: 157888(1)   next: ((62,LEntry),Loop : List(), Call: List(2683))                
+   Dense Iteration: 157889(1)   next: ((62,LBlock(926)),Loop : List(), Call: List(2683))                
+   Dense Iteration: 157890(2)   next: ((62,LBlock(928)),Loop : List(), Call: List(2683))                
+-  Dense Iteration: 157891(1)   next: ((62,LBlock(927)),Loop : List(), Call: List(2683))                
+-  Dense Iteration: 157892(1)   next: ((62,LExit),Loop : List(), Call: List(2683))                
+-  Dense Iteration: 157893(1)   next: ((0,LBlock(2533)),Loop : List(), Call: List())                
+-  Dense Iteration: 157894(2)   next: ((0,LBlock(2535)),Loop : List(), Call: List())                
+-  Dense Iteration: 157895(10)   next: ((0,LBlock(2558)),Loop : List(), Call: List())                
+-  Dense Iteration: 157896(10)   next: ((0,LBlock(2559)),Loop : List(), Call: List())                
+-  Dense Iteration: 157897(10)   next: ((0,LBlock(2555)),Loop : List(), Call: List())                
+-  Dense Iteration: 157898(10)   next: ((0,LBlock(2556)),Loop : List(), Call: List())                
+-  Dense Iteration: 157899(9)   next: ((0,LBlock(2552)),Loop : List(), Call: List())                
+-  Dense Iteration: 157900(9)   next: ((0,LBlock(2553)),Loop : List(), Call: List())                
+-  Dense Iteration: 157901(8)   next: ((0,LBlock(2549)),Loop : List(), Call: List())                
+-  Dense Iteration: 157902(8)   next: ((0,LBlock(2550)),Loop : List(), Call: List())                
+-  Dense Iteration: 157903(7)   next: ((0,LBlock(2546)),Loop : List(), Call: List())                
+-  Dense Iteration: 157904(7)   next: ((0,LBlock(2547)),Loop : List(), Call: List())                
+-  Dense Iteration: 157905(6)   next: ((0,LBlock(2543)),Loop : List(), Call: List())                
+-  Dense Iteration: 157906(6)   next: ((0,LBlock(2544)),Loop : List(), Call: List())                
+-  Dense Iteration: 157907(5)   next: ((0,LBlock(2540)),Loop : List(), Call: List())                
+-  Dense Iteration: 157908(5)   next: ((0,LBlock(2541)),Loop : List(), Call: List())                
+-  Dense Iteration: 157909(4)   next: ((0,LBlock(2537)),Loop : List(), Call: List())                
+-  Dense Iteration: 157910(4)   next: ((0,LBlock(2538)),Loop : List(), Call: List())                
+-  Dense Iteration: 157911(3)   next: ((0,LBlock(2536)),Loop : List(), Call: List())                
+-  Dense Iteration: 157912(2)   next: ((0,LBlock(2535)),Loop : List(), Call: List())                
+-  Dense Iteration: 157913(9)   next: ((0,LBlock(2558)),Loop : List(), Call: List())                
+-  Dense Iteration: 157914(9)   next: ((0,LBlock(2559)),Loop : List(), Call: List())                
+-  Dense Iteration: 157915(10)   next: ((0,LBlock(2555)),Loop : List(), Call: List())                
+-  Dense Iteration: 157916(10)   next: ((0,LBlock(2556)),Loop : List(), Call: List())                
+-  Dense Iteration: 157917(9)   next: ((0,LBlock(2552)),Loop : List(), Call: List())                
+-  Dense Iteration: 157918(9)   next: ((0,LBlock(2553)),Loop : List(), Call: List())                
+-  Dense Iteration: 157919(8)   next: ((0,LBlock(2549)),Loop : List(), Call: List())                
+-  Dense Iteration: 157920(8)   next: ((0,LBlock(2550)),Loop : List(), Call: List())                
+-  Dense Iteration: 157921(7)   next: ((0,LBlock(2546)),Loop : List(), Call: List())                
+-  Dense Iteration: 157922(7)   next: ((0,LBlock(2547)),Loop : List(), Call: List())                
+-  Dense Iteration: 157923(6)   next: ((0,LBlock(2543)),Loop : List(), Call: List())                
+-  Dense Iteration: 157924(6)   next: ((0,LBlock(2544)),Loop : List(), Call: List())                
+-  Dense Iteration: 157925(5)   next: ((0,LBlock(2540)),Loop : List(), Call: List())                
+-  Dense Iteration: 157926(5)   next: ((0,LBlock(2541)),Loop : List(), Call: List())                
+-  Dense Iteration: 157927(4)   next: ((0,LBlock(2537)),Loop : List(), Call: List())                
+-  Dense Iteration: 157928(4)   next: ((0,LBlock(2538)),Loop : List(), Call: List())                
+-  Dense Iteration: 157929(3)   next: ((0,LBlock(2536)),Loop : List(), Call: List())                
+-  Dense Iteration: 157930(2)   next: ((0,LBlock(2535)),Loop : List(), Call: List())                
+-  Dense Iteration: 157931(9)   next: ((0,LBlock(2558)),Loop : List(), Call: List())                
+-  Dense Iteration: 157932(9)   next: ((0,LBlock(2559)),Loop : List(), Call: List())                
+-  Dense Iteration: 157933(8)   next: ((0,LBlock(2555)),Loop : List(), Call: List())                
+-  Dense Iteration: 157934(8)   next: ((0,LBlock(2556)),Loop : List(), Call: List())                
+-  Dense Iteration: 157935(7)   next: ((0,LBlock(2552)),Loop : List(), Call: List())                
+-  Dense Iteration: 157936(7)   next: ((0,LBlock(2553)),Loop : List(), Call: List())                
+-  Dense Iteration: 157937(6)   next: ((0,LBlock(2549)),Loop : List(), Call: List())                
+-  Dense Iteration: 157938(6)   next: ((0,LBlock(2550)),Loop : List(), Call: List())                
+-  Dense Iteration: 157939(5)   next: ((0,LBlock(2546)),Loop : List(), Call: List())                
+-  Dense Iteration: 157940(5)   next: ((0,LBlock(2547)),Loop : List(), Call: List())                
+-  Dense Iteration: 157941(4)   next: ((0,LBlock(2543)),Loop : List(), Call: List())                
+-  Dense Iteration: 157942(4)   next: ((0,LBlock(2544)),Loop : List(), Call: List())                
+-  Dense Iteration: 157943(3)   next: ((0,LBlock(2540)),Loop : List(), Call: List())                
+-  Dense Iteration: 157944(3)   next: ((0,LBlock(2541)),Loop : List(), Call: List())                
+-  Dense Iteration: 157945(2)   next: ((0,LBlock(2537)),Loop : List(), Call: List())                
+-  Dense Iteration: 157946(2)   next: ((0,LBlock(2538)),Loop : List(), Call: List())                
+-  Dense Iteration: 157947(1)   next: ((0,LExit),Loop : List(), Call: List())                
+-# Fixpoint iteration(#): 157948
+-# Time for analysis(s): 108.62
++  Dense Iteration: 157891(2)   next: ((62,LBlock(929)),Loop : List(), Call: List(2683))                
++  Dense Iteration: 157892(3)   next: ((62,LBlock(933)),Loop : List(), Call: List(2683))                
++  Dense Iteration: 157893(2)   next: ((62,LBlock(932)),Loop : List(), Call: List(2683))                
++  Dense Iteration: 157894(2)   next: ((62,LBlock(931)),Loop : List(), Call: List(2683))                
++  Dense Iteration: 157895(2)   next: ((62,LBlock(927)),Loop : List(), Call: List(2683))                
++  Dense Iteration: 157896(1)   next: ((62,LExit),Loop : List(), Call: List(2683))                
++  Dense Iteration: 157897(1)   next: ((0,LBlock(2533)),Loop : List(), Call: List())                
++  Dense Iteration: 157898(2)   next: ((0,LBlock(2535)),Loop : List(), Call: List())                
++  Dense Iteration: 157899(10)   next: ((0,LBlock(2558)),Loop : List(), Call: List())                
++  Dense Iteration: 157900(10)   next: ((0,LBlock(2559)),Loop : List(), Call: List())                
++  Dense Iteration: 157901(10)   next: ((0,LBlock(2555)),Loop : List(), Call: List())                
++  Dense Iteration: 157902(10)   next: ((0,LBlock(2556)),Loop : List(), Call: List())                
++  Dense Iteration: 157903(9)   next: ((0,LBlock(2552)),Loop : List(), Call: List())                
++  Dense Iteration: 157904(9)   next: ((0,LBlock(2553)),Loop : List(), Call: List())                
++  Dense Iteration: 157905(8)   next: ((0,LBlock(2549)),Loop : List(), Call: List())                
++  Dense Iteration: 157906(8)   next: ((0,LBlock(2550)),Loop : List(), Call: List())                
++  Dense Iteration: 157907(7)   next: ((0,LBlock(2546)),Loop : List(), Call: List())                
++  Dense Iteration: 157908(7)   next: ((0,LBlock(2547)),Loop : List(), Call: List())                
++  Dense Iteration: 157909(6)   next: ((0,LBlock(2543)),Loop : List(), Call: List())                
++  Dense Iteration: 157910(6)   next: ((0,LBlock(2544)),Loop : List(), Call: List())                
++  Dense Iteration: 157911(5)   next: ((0,LBlock(2540)),Loop : List(), Call: List())                
++  Dense Iteration: 157912(5)   next: ((0,LBlock(2541)),Loop : List(), Call: List())                
++  Dense Iteration: 157913(4)   next: ((0,LBlock(2537)),Loop : List(), Call: List())                
++  Dense Iteration: 157914(4)   next: ((0,LBlock(2538)),Loop : List(), Call: List())                
++  Dense Iteration: 157915(3)   next: ((0,LBlock(2536)),Loop : List(), Call: List())                
++  Dense Iteration: 157916(2)   next: ((0,LBlock(2535)),Loop : List(), Call: List())                
++  Dense Iteration: 157917(9)   next: ((0,LBlock(2558)),Loop : List(), Call: List())                
++  Dense Iteration: 157918(9)   next: ((0,LBlock(2559)),Loop : List(), Call: List())                
++  Dense Iteration: 157919(10)   next: ((0,LBlock(2555)),Loop : List(), Call: List())                
++  Dense Iteration: 157920(10)   next: ((0,LBlock(2556)),Loop : List(), Call: List())                
++  Dense Iteration: 157921(9)   next: ((0,LBlock(2552)),Loop : List(), Call: List())                
++  Dense Iteration: 157922(9)   next: ((0,LBlock(2553)),Loop : List(), Call: List())                
++  Dense Iteration: 157923(8)   next: ((0,LBlock(2549)),Loop : List(), Call: List())                
++  Dense Iteration: 157924(8)   next: ((0,LBlock(2550)),Loop : List(), Call: List())                
++  Dense Iteration: 157925(7)   next: ((0,LBlock(2546)),Loop : List(), Call: List())                
++  Dense Iteration: 157926(7)   next: ((0,LBlock(2547)),Loop : List(), Call: List())                
++  Dense Iteration: 157927(6)   next: ((0,LBlock(2543)),Loop : List(), Call: List())                
++  Dense Iteration: 157928(6)   next: ((0,LBlock(2544)),Loop : List(), Call: List())                
++  Dense Iteration: 157929(5)   next: ((0,LBlock(2540)),Loop : List(), Call: List())                
++  Dense Iteration: 157930(5)   next: ((0,LBlock(2541)),Loop : List(), Call: List())                
++  Dense Iteration: 157931(4)   next: ((0,LBlock(2537)),Loop : List(), Call: List())                
++  Dense Iteration: 157932(4)   next: ((0,LBlock(2538)),Loop : List(), Call: List())                
++  Dense Iteration: 157933(3)   next: ((0,LBlock(2536)),Loop : List(), Call: List())                
++  Dense Iteration: 157934(2)   next: ((0,LBlock(2535)),Loop : List(), Call: List())                
++  Dense Iteration: 157935(9)   next: ((0,LBlock(2558)),Loop : List(), Call: List())                
++  Dense Iteration: 157936(9)   next: ((0,LBlock(2559)),Loop : List(), Call: List())                
++  Dense Iteration: 157937(8)   next: ((0,LBlock(2555)),Loop : List(), Call: List())                
++  Dense Iteration: 157938(8)   next: ((0,LBlock(2556)),Loop : List(), Call: List())                
++  Dense Iteration: 157939(7)   next: ((0,LBlock(2552)),Loop : List(), Call: List())                
++  Dense Iteration: 157940(7)   next: ((0,LBlock(2553)),Loop : List(), Call: List())                
++  Dense Iteration: 157941(6)   next: ((0,LBlock(2549)),Loop : List(), Call: List())                
++  Dense Iteration: 157942(6)   next: ((0,LBlock(2550)),Loop : List(), Call: List())                
++  Dense Iteration: 157943(5)   next: ((0,LBlock(2546)),Loop : List(), Call: List())                
++  Dense Iteration: 157944(5)   next: ((0,LBlock(2547)),Loop : List(), Call: List())                
++  Dense Iteration: 157945(4)   next: ((0,LBlock(2543)),Loop : List(), Call: List())                
++  Dense Iteration: 157946(4)   next: ((0,LBlock(2544)),Loop : List(), Call: List())                
++  Dense Iteration: 157947(3)   next: ((0,LBlock(2540)),Loop : List(), Call: List())                
++  Dense Iteration: 157948(3)   next: ((0,LBlock(2541)),Loop : List(), Call: List())                
++  Dense Iteration: 157949(2)   next: ((0,LBlock(2537)),Loop : List(), Call: List())                
++  Dense Iteration: 157950(2)   next: ((0,LBlock(2538)),Loop : List(), Call: List())                
++  Dense Iteration: 157951(1)   next: ((0,LExit),Loop : List(), Call: List())                
++# Fixpoint iteration(#): 157952
++# Time for analysis(s): 110.20
+ 
+-Analysis took 115.10s
+-# Peak memory(mb): 1213.62
+-# Result heap memory(mb): 173.99
++Analysis took 115.89s
++# Peak memory(mb): 704.19
++# Result heap memory(mb): 174.00
+ 
+ * Statistics *
+-# Total state count: 138331
++# Total state count: 138335
+ * Reachable FunctionId Set : List(0, 1, 2, 3, 9, 11, 14, 21, 22, 24, 25, 26, 27, 29, 53, 62, 77, 80, 87, 112, 117, 118, 119, 136, 137, 138, 140, 160, 171, 172, 174, 176, 182, 188, 190, 278, 301, 303, 331, 332, 337, 338, 339)
+ # Time for worklist order computation(s): 0.03
+ ================================= Dereference =================================
+-| dereference point(#)    :      567                                          |
+-| average dereference(#)  :    35.10                                          |
++| dereference point(#)    :      568                                          |
++| average dereference(#)  :    35.04                                          |
+ | maximum dereference(#)  :        1                                          |
+ | definite deref. ratio(%):   100.00                                          |
+ |-----------+---Load---+---Store--+--Delete--+---Alloc--+---Call(fun, base)---|
+-|point   (#)|      126 |      292 |        0 |        7 |       63 |       63 |
+-|average (#)|     1.21 |    67.12 |     0.00 |     1.00 |     1.05 |     1.02 |
++|point   (#)|      127 |      292 |        0 |        7 |       63 |       63 |
++|average (#)|     1.20 |    67.12 |     0.00 |     1.00 |     1.05 |     1.02 |
+ |maximum (#)|        1 |        1 |        0 |        1 |        1 |        1 |
+ |definite(%)|   100.00 |   100.00 |      NaN |   100.00 |   100.00 |   100.00 |
+ |-----------+---New(cons, base)---+-Instanceof(obj,con)-+----In----+---this---|
+@@ -157998,23 +158002,23 @@
+ | definite constructor call raito(%):   100.00  |
+ =================================================
+ ========================= Type ==========================
+-| type conversion point(#):      331                    |
++| type conversion point(#):      332                    |
+ | average type size(#)    :     0.98                    |
+-| maximum type size(#)    :        1                    |
+-| definite type ratio(%)  :   100.00                    |
++| maximum type size(#)    :        3                    |
++| definite type ratio(%)  :    99.70                    |
+ | has undefinted ratio(%) :     0.00                    |
+ |-----------+--toBool--+---toNum--+---toStr--+---toObj--|
+-|point   (#)|        0 |        5 |        0 |      326 |
++|point   (#)|        0 |        5 |        0 |      327 |
+ |average (#)|     0.00 |     1.00 |     0.00 |     0.98 |
+-|maximum (#)|        0 |        1 |        0 |        1 |
+-|definite(%)|      NaN |   100.00 |      NaN |   100.00 |
++|maximum (#)|        0 |        1 |        0 |        3 |
++|definite(%)|      NaN |   100.00 |      NaN |    99.69 |
+ |hasundef(%)|      NaN |     0.00 |      NaN |     0.00 |
+ =========================================================
+ ============== Property Access ===============
+-| property access point(#):       31         |
++| property access point(#):       32         |
+ | constant access ratio(%):   100.00         |
+ |-----------+---Load---+---Store--+--Delete--|
+-|point   (#)|       20 |       11 |        0 |
++|point   (#)|       21 |       11 |        0 |
+ |constant(%)|   100.00 |   100.00 |      NaN |
+ ==============================================
+ ============ Strong update ============
+@@ -158022,9 +158026,9 @@
+ | strong update ratio(%):   100.00    |
+ =======================================
+ ============ Dead instructions ============
+-| active basic block(#)      :      398   |
+-| dead instructions(#)       :     4670   |
+-| covered basic block(#)     :      398   |
++| active basic block(#)      :      402   |
++| dead instructions(#)       :     4666   |
++| covered basic block(#)     :      402   |
+ ===========================================
+ ============ Exception ============
+ | Total exception(#) :        0   |
+@@ -158076,7 +158080,7 @@
+ ===============================================================
+ ===================== Deref size for Node =====================
+ | 0-object point(#)       :        0                          |
+-| 1-object point(#)       :      529                          |
++| 1-object point(#)       :      530                          |
+ | 2-objects point(#)       :       17                         |
+ | 3-objects point(#)       :        2                         |
+ | 4-objects point(#)       :        9                         |
+@@ -158085,7 +158089,7 @@
+ ===============================================================
+ ================= Deref size for ControlPoint =================
+ | 0-object point(#)       :        0                          |
+-| 1-object point(#)       :    75607                          |
++| 1-object point(#)       :    75608                          |
+ | 2-objects point(#)       :        0                         |
+ | 3-objects point(#)       :        0                         |
+ | 4-objects point(#)       :        0                         |
+@@ -158280,11 +158284,11 @@
+   underscore.js:1609:26~1611:4: [179] (anonymous function)
+   underscore.js:1621:30~1623:6: [180] (anonymous function)
+ 
+-# Time for node relation computation(s): 0.79
++# Time for node relation computation(s): 0.82
+ 
+ * Bug Detector *
+ # Time for worklist order computation(s): 0.01
+-arrays_1_9.js:5:1~5:14: [Warning] Too few arguments to function '_.first'.
++arrays_1_9.js:5:1~5:15: [Warning] Too few arguments to function '_.first'.
+ underscore.js:19:28~19:34: [Warning] Reading absent property '_' of object 'root'.
+ underscore.js:23:21~23:50: [Warning] Conditional expression 'typeof Symbol !== 'undefined'' is always false.
+ underscore.js:68:9~68:27: [Warning] Conditional expression 'context === void 0' is always true.
+@@ -158298,7 +158302,8 @@
+ underscore.js:421:15~423:5: [Warning] Too few arguments to function 'group'.
+ underscore.js:427:15~429:5: [Warning] Too few arguments to function 'group'.
+ underscore.js:434:15~436:5: [Warning] Too few arguments to function 'group'.
+-underscore.js:470:9~470:22: [Warning] Conditional expression 'array == null' is always true.
++underscore.js:471:9~471:18: [Warning] Implicit type-conversion in equality comparison 'undefined == null'.
++underscore.js:471:9~471:27: [Warning] Conditional expression 'n == null || guard' is always true.
+ underscore.js:530:15~532:5: [Warning] Too few arguments to function 'restArgs'.
+ underscore.js:566:13~568:5: [Warning] Too few arguments to function 'restArgs'.
+ underscore.js:589:18~594:5: [Warning] Too few arguments to function 'restArgs'.
+@@ -158330,7 +158335,7 @@
+ |  SyntaxErrors      :      0 (  0.00%) |
+ |  TypeErrors        :      0 (  0.00%) |
+ |  URIErrors         :      0 (  0.00%) |
+-|  Warnings          :     39 (100.00%) |
++|  Warnings          :     40 (100.00%) |
+ =========================================
+ ============ Statistics =============
+ |  AbsentRead              :      1 |
+@@ -158346,7 +158351,7 @@
+ |  Deprecated              :      0 |
+ |  FunctionArgSize         :     27 |
+ |  GlobalThis              :      0 |
+-|  ImplicitTypeConversion  :      1 |
++|  ImplicitTypeConversion  :      2 |
+ |  AccessingNullOrUndef    :      0 |
+ |  PrimitiveToObject       :      0 |
+ |  RangeError              :      0 |
+@@ -158360,5 +158365,5 @@
+ |  RegularExpression       :      0 |
+ |  WrongArgument           :      0 |
+ =====================================
+-# Time for bug Detection(s): 615.83
++# Time for bug Detection(s): 603.69
+ Ok

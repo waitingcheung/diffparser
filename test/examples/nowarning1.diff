@@ -1,0 +1,58 @@
+--- arrays_1_2.log	2016-04-27 13:03:56.000000000 +0800
++++ arrays_1_2.log	
+@@ -4,17 +4,17 @@
+ Context-sensitivity mode is "loop-sensitivity enabled and 10-callsite".
+ 
+ * Initialize *
+-# Time for IR translation(s): 4.71
+-# Time for CFG building(s): 0.51
+-# Time for front end(s): 5.22
++# Time for IR translation(s): 5.15
++# Time for CFG building(s): 0.50
++# Time for front end(s): 5.65
+ 
+ * Analyze *
+-# Initial peak memory(mb): 275.22
++# Initial peak memory(mb): 275.18
+ # Basic block(#): 5123
+   # Source: 3078
+   # Built-in: 2045
+-# Time for initial heap(s): 0.66
+-# Time for initial heap with DOM modeling(ms): 31.622
++# Time for initial heap(s): 0.45
++# Time for initial heap with DOM modeling(ms): 31.187
+ # Time for worklist order computation(s): 0.18
+ 
+   Dense Iteration: 0(1)   next: ((0,LEntry),Loop : List(), Call: List())                
+@@ -157970,11 +157970,11 @@
+   Dense Iteration: 157950(2)   next: ((0,LBlock(2538)),Loop : List(), Call: List())                
+   Dense Iteration: 157951(1)   next: ((0,LExit),Loop : List(), Call: List())                
+ # Fixpoint iteration(#): 157952
+-# Time for analysis(s): 106.09
++# Time for analysis(s): 105.19
+ 
+-Analysis took 112.01s
+-# Peak memory(mb): 719.53
+-# Result heap memory(mb): 173.88
++Analysis took 111.34s
++# Peak memory(mb): 703.95
++# Result heap memory(mb): 174.00
+ 
+ * Statistics *
+ # Total state count: 138335
+@@ -158288,7 +158288,7 @@
+ 
+ * Bug Detector *
+ # Time for worklist order computation(s): 0.01
+-arrays_1_1.js:5:1~5:21: [Warning] Too few arguments to function '_.first'.
++arrays_1_1.js:5:1~5:33: [Warning] Too few arguments to function '_.first'.
+ underscore.js:19:28~19:34: [Warning] Reading absent property '_' of object 'root'.
+ underscore.js:23:21~23:50: [Warning] Conditional expression 'typeof Symbol !== 'undefined'' is always false.
+ underscore.js:68:9~68:27: [Warning] Conditional expression 'context === void 0' is always true.
+@@ -158366,5 +158366,5 @@
+ |  RegularExpression       :      0 |
+ |  WrongArgument           :      0 |
+ =====================================
+-# Time for bug Detection(s): 601.54
++# Time for bug Detection(s): 607.68
+ Ok
