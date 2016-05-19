@@ -40,7 +40,7 @@ function findBug(diff, callback) {
 
                 var change = chunk.changes[i];
                 if (change.type === 'del' || change.type === 'add') {
-                    if (change.content.indexOf('[Warning]') > -1) {
+                    if (containsWarning(change) && !shouldFilterWarning(change)) {
                         changes.push(parseWarning(change));
                     }
                 }
@@ -103,10 +103,31 @@ function filterChanges(changes) {
     return (filteredChanges);
 }
 
+function containsWarning(change) {
+    return change.content.indexOf('[Warning]') > -1
+}
+
+function shouldFilterWarning(change) {
+    var content = change.content;
+
+    // Conditional expression [expr] is always true / false
+    if (content.indexOf('Conditional expression') > -1 && content.indexOf('is always') > -1) {
+        return true;
+    }
+
+    // Too many / few arguments to function
+    else if (content.indexOf('Too many arguments to function') > -1 || content.indexOf('Too few arguments to function') > -1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 module.exports = {
     readFile: readFile,
     findBug: findBug,
     parseWarning: parseWarning,
     isSameChange: isSameChange,
-    filterChanges: filterChanges
+    filterChanges: filterChanges,
+    shouldFilterWarning: shouldFilterWarning
 }

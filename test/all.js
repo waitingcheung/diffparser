@@ -16,15 +16,15 @@ test('isSameChange', function() {
     ok(isSameChange(delChange, addChange), 'Both changes are the same');
 });
 
-test('read a diff with 2 warnings', function() {
+test('read a diff with 1 warning', function() {
     expect(1);
     stop();
 
     setTimeout(function() {
         readFile('test/examples/warning1.diff', function(warnings) {
-            ok(warnings.length === 2, '2 warnings found');
+            ok(warnings.length === 1, '1 warning found');
+            start();
         });
-        start();
     }, 0);
 });
 
@@ -35,7 +35,40 @@ test('read a diff with no warnings', function() {
     setTimeout(function() {
         readFile('test/examples/nowarning1.diff', function(warnings) {
             ok(warnings.length === 0, 'No warnings found');
+            start();
         });
-        start();
     }, 0);
+});
+
+test('filter out conditional expression warnings', function() {
+    var change = {
+        type: 'add',
+        add: true,
+        ln: 123456,
+        content: '-filename.js:7:1~7:17: [Warning] Conditional expression \'cond === null\' is always true.'
+    };
+
+    ok(shouldFilterWarning(change), 'Condition expression warnings filtered');
+});
+
+test('filter out too many arguments warnings', function() {
+    var change = {
+        type: 'add',
+        add: true,
+        ln: 123456,
+        content: '-filename.js:7:1~7:17: [Warning] Too many arguments to function \'foo\'.'
+    };
+
+    ok(shouldFilterWarning(change), 'Too many arguments warnings filtered');
+});
+
+test('filter out too few arguments warnings', function() {
+    var change = {
+        type: 'add',
+        add: true,
+        ln: 123456,
+        content: '-filename.js:7:1~7:17: [Warning] Too few arguments to function \'foo\'.'
+    };
+
+    ok(shouldFilterWarning(change), 'Too few arguments warnings filtered');
 });
