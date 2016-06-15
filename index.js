@@ -8,6 +8,7 @@ if (unifiedDiff.endsWith('.diff')) {
         warnings.forEach(function(item) {
             console.log(item.content.message);
         });
+        console.log(warnings.length + ' warning(s) found.');
     });
 }
 
