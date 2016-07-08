@@ -117,11 +117,11 @@ function shouldFilterWarning(change) {
     }
 
     // Too many / few arguments to function
-    else if (content.indexOf('Too many arguments to function') > -1 || content.indexOf('Too few arguments to function') > -1) {
+    if (content.indexOf('Too many arguments to function') > -1 || content.indexOf('Too few arguments to function') > -1) {
         return true;
-    } else {
-        return false;
     }
+
+    return false;
 }
 
 module.exports = {
