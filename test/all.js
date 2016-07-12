@@ -16,6 +16,26 @@ test('isSameChange', function() {
     ok(isSameChange(delChange, addChange), 'Both changes are the same');
 });
 
+test('filterChanges', function() {
+    var delChange = {
+        type: 'del',
+        del: true,
+        ln: 123456,
+        content: '-filename.js:7:1~7:17: [Warning] Conditional expression \'cond === null\' is always true.'
+    };
+
+    var addChange = {
+        type: 'add',
+        add: true,
+        ln: 123456,
+        content: '-filename.js:7:1~7:17: [Warning] Conditional expression \'cond === null\' is always true.'
+    };
+
+    var changes = [delChange, addChange];
+    var filteredChanges = filterChanges(changes);
+    ok(filteredChanges.length == 0, 'Same changes filtered');
+});
+
 test('read a diff with 1 warning', function() {
     expect(1);
     stop();
