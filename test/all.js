@@ -72,3 +72,14 @@ test('filter out too few arguments warnings', function() {
 
     ok(shouldFilterWarning(change), 'Too few arguments warnings filtered');
 });
+
+test('filter out absent property with dynamic values warnings', function() {
+    var change = {
+        type: 'add',
+        add: true,
+        ln: 123456,
+        content: '-filename.js:7:1~7:17: [Warning] Reading absent property \'prop\' of object \'obj\', where property \'prop\' can be "val".'
+    };
+
+    ok(shouldFilterWarning(change), 'Absent property with dynamic values filtered');
+});

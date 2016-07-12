@@ -123,6 +123,11 @@ function shouldFilterWarning(change) {
         return true;
     }
 
+    // Reading absent property [prop] of object [obj], where property [prop] can be [val].
+    if (content.indexOf('Reading absent property') > -1 && content.indexOf('where property') > -1 && content.indexOf('can be') > -1) {
+        return true;
+    }
+
     return false;
 }
 
