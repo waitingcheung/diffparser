@@ -5,7 +5,7 @@ var argv = require('minimist')(process.argv.slice(2));
 var unifiedDiff = argv._[0];
 if (unifiedDiff.endsWith('.diff')) {
     readFile(argv._[0], function(warnings) {
-        if (warnings.length > 0) {
+        if (warnings && warnings.length > 0) {
             warnings.forEach(function(item) {
                 console.log(item.content.message);
             });
