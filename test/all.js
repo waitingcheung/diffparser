@@ -104,6 +104,17 @@ test('filter out absent property with dynamic values warnings', function() {
     ok(shouldFilterWarning(change), 'Absent property with dynamic values filtered');
 });
 
+test('filter out nth argument of prop should be of certain type', function() {
+    var change = {
+        type: 'add',
+        add: true,
+        ln: 123456,
+        content: '-filename.js:7:1~7:17: [Warning] First argument of \'prop\' should be an object type.'
+    };
+
+    ok(shouldFilterWarning(change), 'Argument of certain type filtered');
+});
+
 test('extract the total number of warnings', function() {
     var content = '+|  Warnings          :     7 (100.00%) |';
     ok(getWarningsTotal(content) === 7, 'Total number of warnings extracted');

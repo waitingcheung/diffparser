@@ -147,6 +147,11 @@ function shouldFilterWarning(change) {
         return true;
     }
 
+    // [nth] argument of [prop] should be a [type] type.
+    if (content.indexOf('argument of') > -1 && content.indexOf('should be') > -1 && content.indexOf('type') > -1) {
+    	return true;
+    }
+
     if (argv.filter) {
         var filter = argv.filter;
 
