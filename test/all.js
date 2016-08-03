@@ -103,3 +103,8 @@ test('filter out absent property with dynamic values warnings', function() {
 
     ok(shouldFilterWarning(change), 'Absent property with dynamic values filtered');
 });
+
+test('extract the total number of warnings', function() {
+    var content = '+|  Warnings          :     7 (100.00%) |';
+    ok(getWarningsTotal(content) === 7, 'Total number of warnings extracted');
+});

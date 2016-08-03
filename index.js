@@ -2,18 +2,31 @@ var fs = require('fs');
 var parse = require('parse-diff');
 var argv = require('minimist')(process.argv.slice(2));
 
+var warningsTotal = 0;
 var unifiedDiff = argv._[0];
+
 if (unifiedDiff && unifiedDiff.endsWith('.diff')) {
     readFile(argv._[0], function(warnings) {
         if (warnings && warnings.length > 0) {
             warnings.forEach(function(item) {
                 console.log(item.content.message);
             });
-            console.log(warnings.length + ' warning(s) found.');
+
+            var summary = warnings.length + ' warning(s) found';
+
+            if (warningsTotal > 0) {
+                var warningsFiltered = warningsTotal - warnings.length;
+                summary += ', ' +
+                    warningsFiltered + ' / ' + warningsTotal +
+                    ' (' + warningsFiltered / warningsTotal * 100 + '%) ' +
+                    'warnings(s) filtered';
+            }
+
+            console.log(summary + '.');
         }
     });
 } else {
-	help();
+    help();
 }
 
 function readFile(file, callback) {
@@ -47,6 +60,10 @@ function findBug(diff, callback) {
                 if (change.type === 'del' || change.type === 'add') {
                     if (containsWarning(change) && !shouldFilterWarning(change)) {
                         changes.push(parseWarning(change));
+                    }
+
+                    if (change.content.startsWith('+|  Warnings          :')) {
+                        warningsTotal = getWarningsTotal(change.content);
                     }
                 }
             }
@@ -133,9 +150,23 @@ function shouldFilterWarning(change) {
     return false;
 }
 
+function getWarningsTotal(content) {
+    var tokens = content.split(' ');
+
+    for (var i in tokens) {
+        var result = parseInt(tokens[i]);
+
+        if (!isNaN(result)) {
+            return result;
+        }
+    }
+
+    return 0;
+}
+
 function help() {
-	console.log('Usage');
-	console.log('\tnode index.js path/to/diff');
+    console.log('Usage');
+    console.log('\tnode index.js path/to/diff');
 }
 
 module.exports = {
@@ -144,5 +175,6 @@ module.exports = {
     parseWarning: parseWarning,
     isSameChange: isSameChange,
     filterChanges: filterChanges,
-    shouldFilterWarning: shouldFilterWarning
+    shouldFilterWarning: shouldFilterWarning,
+    getWarningsTotal: getWarningsTotal
 }
