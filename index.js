@@ -3,7 +3,7 @@ var parse = require('parse-diff');
 var argv = require('minimist')(process.argv.slice(2));
 
 var unifiedDiff = argv._[0];
-if (unifiedDiff.endsWith('.diff')) {
+if (unifiedDiff && unifiedDiff.endsWith('.diff')) {
     readFile(argv._[0], function(warnings) {
         if (warnings && warnings.length > 0) {
             warnings.forEach(function(item) {
@@ -12,6 +12,8 @@ if (unifiedDiff.endsWith('.diff')) {
             console.log(warnings.length + ' warning(s) found.');
         }
     });
+} else {
+	help();
 }
 
 function readFile(file, callback) {
@@ -129,6 +131,11 @@ function shouldFilterWarning(change) {
     }
 
     return false;
+}
+
+function help() {
+	console.log('Usage');
+	console.log('\tnode index.js path/to/diff');
 }
 
 module.exports = {
