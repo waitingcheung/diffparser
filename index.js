@@ -147,6 +147,25 @@ function shouldFilterWarning(change) {
         return true;
     }
 
+    if (argv.filter) {
+        var filter = argv.filter;
+
+        if (isDirectoryExists(filter)) {
+        	// Filter warnings based on the JavaScript files in a directory
+            var files = fs.readdirSync(filter);
+            for (var i in files) {
+            	if (files[i].endsWith('.js') && content.substring(1).startsWith(files[i])) {
+            		return true;
+            	}
+            }
+        } else {
+            // Filter warnings based on filename
+            if (content.substring(1).startsWith(filter)) {
+                return true;
+            }
+        }
+    }
+
     return false;
 }
 
@@ -164,9 +183,19 @@ function getWarningsTotal(content) {
     return 0;
 }
 
+function isDirectoryExists(dir) {
+    try {
+        fs.statSync(dir);
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
 function help() {
     console.log('Usage');
-    console.log('\tnode index.js path/to/diff');
+    console.log('\tnode index.js path/to/diff [options]\n');
+    console.log('\t--filter=[directory | filename]');
 }
 
 module.exports = {
