@@ -17,8 +17,8 @@ if (unifiedDiff && unifiedDiff.endsWith('.diff')) {
             if (warningsTotal > 0) {
                 var warningsFiltered = warningsTotal - warnings.length;
                 summary += ', ' +
-                    warningsFiltered + ' / ' + warningsTotal +
-                    ' (' + warningsFiltered / warningsTotal * 100 + '%) ' +
+                    warningsFiltered + '/' + warningsTotal +
+                    ' (' + (warningsFiltered / warningsTotal * 100).toFixed(2) + '%) ' +
                     'warnings(s) filtered';
             }
 
