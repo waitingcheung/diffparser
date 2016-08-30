@@ -130,6 +130,11 @@ function containsWarning(change) {
 }
 
 function shouldFilterWarning(change) {
+	// Do not filter any warnings in developer mode.
+	if (argv.dev) {
+		return false;
+	}
+
     var content = change.content;
 
     // Conditional expression [expr] is always true / false
