@@ -4,7 +4,7 @@ var a = require('assert');
 testrunner.options.coverage = true;
 
 testrunner.run({
-    code: "index.js",
+    code: "lib/parser.js",
     tests: "test/all.js"
 }, function(err, res) {
     if (err) {

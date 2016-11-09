@@ -2,9 +2,12 @@
     "name": "diffparser",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "./lib/parser.js",
     "scripts": {
         "test": "node test/testrunner.js"
+    },
+    "bin": {
+        "diffparse": "./bin/index.js"
     },
     "author": "",
     "license": "ISC",

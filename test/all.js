@@ -117,5 +117,5 @@ test('filter out nth argument of prop should be of certain type', function() {
 
 test('extract the total number of warnings', function() {
     var content = '+|  Warnings          :     7 (100.00%) |';
-    ok(getWarningsTotal(content) === 7, 'Total number of warnings extracted');
+    ok(computeWarningsTotal(content) === 7, 'Total number of warnings extracted');
 });
