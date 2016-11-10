@@ -5,10 +5,32 @@
 
 A parser for parsing the unified diff of the outputs of [SAFE], Scalable Analysis Framework for ECMAScript.
 
-### Usage
+### Standalone Usage
 
 ```sh
-node index path/to/diff
+node bin path/to/diff [options]
+
+Options:
+--filter=[directory | filename]
+```
+
+### Package Usage 
+
+In **package.json**, add the following to dependencies
+```js
+"diffparser": "git://github.com/waitingcheung/diffparser.git"
+```
+
+Follow the below usage example
+```js
+var diffparser = require('diffparser');
+var config = {
+  'file': 'path/to/diff',
+  'filter': 'filename-or-directory' // optional
+};
+diffparser.readFile(config, function(warnings) {
+  console.log(warnings);
+});
 ```
 
 ### Unified Diff Example
@@ -56,8 +78,8 @@ node index path/to/diff
 
 ### Output
 ```sh
-underscore.js:471:9~471:18: [Warning] Implicit type-conversion in equality comparison 'undefined == null'.
 underscore.js:471:9~471:27: [Warning] Conditional expression 'n == null || guard' is always true.
+1 warning(s) found, 39/40 (97.50%) warnings(s) filtered.
 ```
 
 
