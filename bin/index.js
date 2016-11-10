@@ -44,6 +44,6 @@ if (unifiedDiff && unifiedDiff.endsWith('.diff')) {
 
 function help() {
     console.log('Usage');
-    console.log('\tnode index.js path/to/diff [options]\n');
+    console.log('\tnode bin path/to/diff [options]\n');
     console.log('\t--filter=[directory | filename]');
 }
