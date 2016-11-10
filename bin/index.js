@@ -6,7 +6,19 @@ var diffparser = require('../lib/parser');
 var unifiedDiff = argv._[0];
 
 if (unifiedDiff && unifiedDiff.endsWith('.diff')) {
-    diffparser.readFile(argv._[0], function(warnings) {
+    var config = {
+        'file': argv._[0]
+    };
+
+    if (argv.filter) {
+        config.filterPath = argv.filter;
+    }
+
+    if (config.dev) {
+        config.developerMode = true;
+    }
+
+    diffparser.readFile(config, function(warnings) {
         if (warnings && warnings.length > 0) {
             warnings.forEach(function(item) {
                 console.log(item.content.message);

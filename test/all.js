@@ -41,7 +41,10 @@ test('read a diff with 1 warning', function() {
     stop();
 
     setTimeout(function() {
-        readFile('test/examples/warning1.diff', function(warnings) {
+        var config = {
+            'file': 'test/examples/warning1.diff'
+        }
+        readFile(config, function(warnings) {
             ok(warnings.length === 1, '1 warning found');
             start();
         });
@@ -53,7 +56,10 @@ test('read a diff with no warnings', function() {
     stop();
 
     setTimeout(function() {
-        readFile('test/examples/nowarning1.diff', function(warnings) {
+        var config = {
+            'file': 'test/examples/nowarning1.diff'
+        }
+        readFile(config, function(warnings) {
             ok(warnings.length === 0, 'No warnings found');
             start();
         });
@@ -114,6 +120,40 @@ test('filter out nth argument of prop should be of certain type', function() {
 
     ok(shouldFilterWarning(change), 'Argument of certain type filtered');
 });
+
+test('filter out warnings based on filename', function() {
+    var change = {
+        type: 'add',
+        add: true,
+        ln: 123456,
+        content: '-filename.js:7:1~7:17: [Warning] Random message.'
+    };
+
+    ok(shouldFilterWarning(change, 'filename.js'), 'Warnings from filename filtered');
+});
+
+test('filter out warnings based on directory', function() {
+    var change = {
+        type: 'add',
+        add: true,
+        ln: 123456,
+        content: '-filename.js:7:1~7:17: [Warning] Random message.'
+    };
+
+    ok(shouldFilterWarning(change, 'test/examples'), 'Warnings from directory filtered');
+});
+
+test('filter nothing in developer mode', function() {
+    var change = {
+        type: 'add',
+        add: true,
+        ln: 123456,
+        content: '-filename.js:7:1~7:17: [Warning] Random message.'
+    };
+
+    ok(!shouldFilterWarning(change, undefined, true), 'No warnings filtered');
+});
+
 
 test('extract the total number of warnings', function() {
     var content = '+|  Warnings          :     7 (100.00%) |';
