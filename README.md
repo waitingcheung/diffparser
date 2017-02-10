@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/waitingcheung/diffparser.svg?branch=master)](https://travis-ci.org/waitingcheung/diffparser)
 [![codecov](https://codecov.io/gh/waitingcheung/diffparser/branch/master/graph/badge.svg)](https://codecov.io/gh/waitingcheung/diffparser)
+[![npm version](https://badge.fury.io/js/safe-diffparser.svg)](https://badge.fury.io/js/safe-diffparser)
 
 A parser for parsing the unified diff of the outputs of [SAFE], Scalable Analysis Framework for ECMAScript.
 
