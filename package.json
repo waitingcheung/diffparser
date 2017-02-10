@@ -1,7 +1,7 @@
 {
-    "name": "diffparser",
+    "name": "safe-diffparser",
     "version": "1.0.0",
-    "description": "",
+    "description": "A parser for parsing the unified diff of the outputs of SAFE",
     "main": "./lib/parser.js",
     "scripts": {
         "test": "node test/testrunner.js"
@@ -9,7 +9,7 @@
     "bin": {
         "diffparse": "./bin/index.js"
     },
-    "author": "",
+    "author": "Wai Ting Cheung",
     "license": "ISC",
     "dependencies": {
         "parse-diff": "^0.4.0",
