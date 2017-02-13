@@ -6,6 +6,12 @@
 
 A parser for parsing the unified diff of the outputs of [SAFE], Scalable Analysis Framework for ECMAScript.
 
+### Installation
+
+```sh
+npm install safe-diffparser --save
+```
+
 ### Standalone Usage
 
 ```sh
@@ -15,16 +21,11 @@ Options:
 --filter=[directory | filename]
 ```
 
-### Package Usage 
-
-In **package.json**, add the following to dependencies
-```js
-"diffparser": "git://github.com/waitingcheung/diffparser.git"
-```
+### Package Usage
 
 Follow the below usage example
 ```js
-var diffparser = require('diffparser');
+var diffparser = require('safe-diffparser');
 var config = {
   'file': 'path/to/diff',
   'filter': 'filename-or-directory' // optional
