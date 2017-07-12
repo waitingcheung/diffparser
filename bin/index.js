@@ -18,9 +18,9 @@ if (unifiedDiff && unifiedDiff.endsWith('.diff')) {
         config.developerMode = true;
     }
 
-    diffparser.readFile(config, function(warnings) {
+    diffparser.readFile(config, function (warnings) {
         if (warnings && warnings.length > 0) {
-            warnings.forEach(function(item) {
+            warnings.forEach(function (item) {
                 console.log(item.content.message);
             });
 

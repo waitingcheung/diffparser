@@ -1,4 +1,4 @@
-test('isSameChange', function() {
+test('isSameChange', function () {
     var delChange = {
         type: 'del',
         del: true,
@@ -16,7 +16,7 @@ test('isSameChange', function() {
     ok(isSameChange(delChange, addChange), 'Both changes are the same');
 });
 
-test('filterChanges', function() {
+test('filterChanges', function () {
     var delChange = {
         type: 'del',
         del: true,
@@ -33,40 +33,40 @@ test('filterChanges', function() {
 
     var changes = [delChange, addChange];
     var filteredChanges = filterChanges(changes);
-    ok(filteredChanges.length == 0, 'Same changes filtered');
+    ok(filteredChanges.length === 0, 'Same changes filtered');
 });
 
-test('read a diff with 1 warning', function() {
+test('read a diff with 1 warning', function () {
     expect(1);
     stop();
 
-    setTimeout(function() {
+    setTimeout(function () {
         var config = {
             'file': 'test/examples/warning1.diff'
-        }
-        readFile(config, function(warnings) {
+        };
+        readFile(config, function (warnings) {
             ok(warnings.length === 1, '1 warning found');
             start();
         });
     }, 0);
 });
 
-test('read a diff with no warnings', function() {
+test('read a diff with no warnings', function () {
     expect(1);
     stop();
 
-    setTimeout(function() {
+    setTimeout(function () {
         var config = {
             'file': 'test/examples/nowarning1.diff'
-        }
-        readFile(config, function(warnings) {
+        };
+        readFile(config, function (warnings) {
             ok(warnings.length === 0, 'No warnings found');
             start();
         });
     }, 0);
 });
 
-test('filter out conditional expression warnings', function() {
+test('filter out conditional expression warnings', function () {
     var change = {
         type: 'add',
         add: true,
@@ -77,7 +77,7 @@ test('filter out conditional expression warnings', function() {
     ok(shouldFilterWarning(change), 'Condition expression warnings filtered');
 });
 
-test('filter out too many arguments warnings', function() {
+test('filter out too many arguments warnings', function () {
     var change = {
         type: 'add',
         add: true,
@@ -88,7 +88,7 @@ test('filter out too many arguments warnings', function() {
     ok(shouldFilterWarning(change), 'Too many arguments warnings filtered');
 });
 
-test('filter out too few arguments warnings', function() {
+test('filter out too few arguments warnings', function () {
     var change = {
         type: 'add',
         add: true,
@@ -99,7 +99,7 @@ test('filter out too few arguments warnings', function() {
     ok(shouldFilterWarning(change), 'Too few arguments warnings filtered');
 });
 
-test('filter out absent property with dynamic values warnings', function() {
+test('filter out absent property with dynamic values warnings', function () {
     var change = {
         type: 'add',
         add: true,
@@ -110,7 +110,7 @@ test('filter out absent property with dynamic values warnings', function() {
     ok(shouldFilterWarning(change), 'Absent property with dynamic values filtered');
 });
 
-test('filter out nth argument of prop should be of certain type', function() {
+test('filter out nth argument of prop should be of certain type', function () {
     var change = {
         type: 'add',
         add: true,
@@ -121,7 +121,7 @@ test('filter out nth argument of prop should be of certain type', function() {
     ok(shouldFilterWarning(change), 'Argument of certain type filtered');
 });
 
-test('filter out warnings based on filename', function() {
+test('filter out warnings based on filename', function () {
     var change = {
         type: 'add',
         add: true,
@@ -132,7 +132,7 @@ test('filter out warnings based on filename', function() {
     ok(shouldFilterWarning(change, 'filename.js'), 'Warnings from filename filtered');
 });
 
-test('filter out warnings based on directory', function() {
+test('filter out warnings based on directory', function () {
     var change = {
         type: 'add',
         add: true,
@@ -143,7 +143,21 @@ test('filter out warnings based on directory', function() {
     ok(shouldFilterWarning(change, 'test/examples'), 'Warnings from directory filtered');
 });
 
-test('filter nothing in developer mode', function() {
+test('filter out warnings independent of developer mode', function () {
+    var change = {
+        type: 'add',
+        add: true,
+        ln: 123456,
+        content: '-filename.js:7:1~7:17: [Warning] Random message.'
+    };
+
+    ok(shouldFilterWarning(change, 'filename.js', true), 'Warnings from filename filtered with developer mode');
+    ok(shouldFilterWarning(change, 'filename.js', false), 'Warnings from filename filtered without developer mode');
+    ok(shouldFilterWarning(change, 'test/examples', true), 'Warnings from directory filtered with developer mode');
+    ok(shouldFilterWarning(change, 'test/examples', false), 'Warnings from directory filtered without developer mode');
+});
+
+test('filter nothing in developer mode', function () {
     var change = {
         type: 'add',
         add: true,
@@ -155,7 +169,7 @@ test('filter nothing in developer mode', function() {
 });
 
 
-test('extract the total number of warnings', function() {
+test('extract the total number of warnings', function () {
     var content = '+|  Warnings          :     7 (100.00%) |';
     ok(computeWarningsTotal(content) === 7, 'Total number of warnings extracted');
 });
